@@ -215,7 +215,7 @@ static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
     didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
                       sessionID:(NSString *)sessionID
             launchedApplication:(BOOL)launchedApplication {
-  NSLog(@"application has launched");
+  NSLog(@"application has launched %hhd", launchedApplication);
 
   self.textChannel =
       [[HTGCTextChannel alloc] initWithNamespace:@"urn:x-cast:com.google.cast.sample.helloworld"];
@@ -223,7 +223,7 @@ static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
 }
 
 - (void)deviceManager:(GCKDeviceManager *)deviceManager
-    didFailToLaunchCastApplicationWithError:(NSError *)error {
+    didFailToConnectToApplicationWithError:(NSError *)error {
   [self showError:error];
 
   [self deviceDisconnected];
@@ -238,7 +238,8 @@ static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
   [self updateButtonStates];
 }
 
-- (void)deviceManager:(GCKDeviceManager *)deviceManager didDisconnectWithError:(GCKError *)error {
+- (void)deviceManager:(GCKDeviceManager *)deviceManager
+    didDisconnectWithError:(GCKError *)error {
   NSLog(@"Received notification that device disconnected");
 
   if (error != nil) {
@@ -253,6 +254,8 @@ static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
 - (void)deviceManager:(GCKDeviceManager *)deviceManager
     didReceiveStatusForApplication:(GCKApplicationMetadata *)applicationMetadata {
   self.applicationMetadata = applicationMetadata;
+
+  NSLog(@"Received device status: %@", applicationMetadata);
 }
 
 #pragma mark - misc
