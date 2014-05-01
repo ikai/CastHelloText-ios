@@ -25,4 +25,6 @@
 @property(nonatomic, strong) GCKDeviceManager* deviceManager;
 @property(nonatomic, readonly) GCKMediaInformation* mediaInformation;
 
+@property(nonatomic, strong) IBOutlet UITextView* warningText;
+
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D00DE181912B35300E1F818 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D00DE171912B35300E1F818 /* GoogleCast.framework */; };
 		CC077642189084BA00577499 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC077641189084BA00577499 /* GoogleCast.framework */; };
 		CCC226B7188726D700EFA0B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC226B6188726D700EFA0B9 /* Foundation.framework */; };
 		CCC226B9188726D700EFA0B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC226B8188726D700EFA0B9 /* CoreGraphics.framework */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D00DE171912B35300E1F818 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
 		CC077641189084BA00577499 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleCast.framework; path = ../GoogleCast.framework; sourceTree = "<group>"; };
 		CCC226B3188726D700EFA0B9 /* HelloTextGoogleCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloTextGoogleCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCC226B6188726D700EFA0B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,6 +81,7 @@
 				CC077642189084BA00577499 /* GoogleCast.framework in Frameworks */,
 				CCC226B9188726D700EFA0B9 /* CoreGraphics.framework in Frameworks */,
 				CCC226BB188726D700EFA0B9 /* UIKit.framework in Frameworks */,
+				4D00DE181912B35300E1F818 /* GoogleCast.framework in Frameworks */,
 				CCC226B7188726D700EFA0B9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				CC077641189084BA00577499 /* GoogleCast.framework */,
+				4D00DE171912B35300E1F818 /* GoogleCast.framework */,
 				CCC226F9188727CF00EFA0B9 /* GoogleCast.framework */,
 				CCC226B6188726D700EFA0B9 /* Foundation.framework */,
 				CCC226B8188726D700EFA0B9 /* CoreGraphics.framework */,
@@ -426,6 +430,7 @@
 					"$(inherited)",
 					.,
 					..,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloTextGoogleCast/HelloTextGoogleCast-Prefix.pch";
@@ -446,6 +451,7 @@
 					"$(inherited)",
 					.,
 					..,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloTextGoogleCast/HelloTextGoogleCast-Prefix.pch";

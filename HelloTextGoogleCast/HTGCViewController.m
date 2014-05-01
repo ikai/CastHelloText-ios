@@ -15,6 +15,8 @@
 #import "HTGCViewController.h"
 #import "HTGCTextChannel.h"
 
+// Change this value to the app ID created in the Google Cast SDK
+// Developer Console: https://cast.google.com/publish
 static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
 
 @interface HTGCViewController () {
@@ -35,7 +37,12 @@ static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  //Create cast button
+  // Show warning if app ID has not been set
+  if ([kReceiverAppID isEqual:@"YOUR_APP_ID_HERE"]) {
+    _warningText.hidden = false;
+  }
+
+  // Create cast button
   _btnImage = [UIImage imageNamed:@"icon-cast-identified.png"];
   _btnImageSelected = [UIImage imageNamed:@"icon-cast-connected.png"];
 
@@ -47,11 +54,11 @@ static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
   [_chromecastButton setImage:nil forState:UIControlStateNormal];
   _chromecastButton.hidden = YES;
 
-  //add cast button to navigation bar
+  // Add cast button to navigation bar
   self.navigationItem.rightBarButtonItem =
       [[UIBarButtonItem alloc] initWithCustomView:_chromecastButton];
 
-  //Initialize device scanner
+  // Initialize device scanner
   self.deviceScanner = [[GCKDeviceScanner alloc] init];
   [self.deviceScanner addListener:self];
   [self.deviceScanner startScan];
@@ -63,9 +70,9 @@ static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
 }
 
 - (void)chooseDevice:(id)sender {
-  //Choose device
+  // Choose device
   if (self.selectedDevice == nil) {
-    //Device Selection List
+    // Device Selection List
     UIActionSheet *sheet =
         [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Connect to Device", nil)
                                     delegate:self
