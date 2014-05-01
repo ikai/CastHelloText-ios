@@ -231,7 +231,7 @@ static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
 
 - (void)deviceManager:(GCKDeviceManager *)deviceManager
     didFailToConnectToApplicationWithError:(NSError *)error {
-  [self showError:error];
+  [self showError:error title:@"Error connecting to app"];
 
   [self deviceDisconnected];
   [self updateButtonStates];
@@ -239,7 +239,7 @@ static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
 
 - (void)deviceManager:(GCKDeviceManager *)deviceManager
     didFailToConnectWithError:(GCKError *)error {
-  [self showError:error];
+  [self showError:error title:@"Error connecting to Chromecast"];
 
   [self deviceDisconnected];
   [self updateButtonStates];
@@ -250,7 +250,7 @@ static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
   NSLog(@"Received notification that device disconnected");
 
   if (error != nil) {
-    [self showError:error];
+    [self showError:error title:@"Disconnected with error"];
   }
 
   [self deviceDisconnected];
@@ -266,8 +266,8 @@ static NSString *const kReceiverAppID = @"YOUR_APP_ID_HERE";
 }
 
 #pragma mark - misc
-- (void)showError:(NSError *)error {
-  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+- (void)showError:(NSError *)error title:(NSString *) title {
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                   message:NSLocalizedString(error.description, nil)
                                                  delegate:nil
                                         cancelButtonTitle:NSLocalizedString(@"OK", nil)
