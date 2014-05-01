@@ -19,3 +19,6 @@ DerivedData
 
 #CocoaPods
 Pods
+
+# Google Cast Framework
+GoogleCast.framework
